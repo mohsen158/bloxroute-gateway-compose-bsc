@@ -12,7 +12,7 @@ services:
       - ${LOG_FILE_PATH:-./logs}:/app/bloxroute/logs
       - ${SSL_CERT_PATH:-./ssl}:/app/bloxroute/ssl
     environment:
-      - BLOCKCHAIN_NETWORK=${BLOCKCHAIN_NETWORK:-BSC-Mainnet}
+      - BLOCKCHAIN_NETWORK=${BLOCKCHAIN_NETWORK:BSC-Mainnet}
       - BLOCKCHAIN_NODE_PUBLIC_KEY=${BLOCKCHAIN_NODE_PUBLIC_KEY}
       - NODE_IP=${NODE_IP}
       - NODE_PORT=${NODE_PORT}
@@ -25,7 +25,7 @@ services:
       --port 1801
       --enodes enode://${BLOCKCHAIN_NODE_PUBLIC_KEY}@${NODE_IP}:${NODE_PORT}
       --enr ${ENR}
-      --private-key ${PRIVATE_KEY}
+      # --private-key ${PRIVATE_KEY}
       --eth-ws-uri ${ETH_WS_URI}
     networks:
       - bloxroute-network
