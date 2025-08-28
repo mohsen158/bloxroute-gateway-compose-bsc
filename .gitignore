@@ -1,0 +1,34 @@
+# Environment files
+.env
+.env.local
+.env.production
+
+# Log files (keep examples but ignore actual logs)
+logs/*.log
+logs/*.log.*
+!logs/*.log.example
+!logs/.gitkeep
+!logs/README.md
+
+# SSL certificates
+ssl/
+*.pem
+*.key
+*.crt
+
+# Docker
+.dockerignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp

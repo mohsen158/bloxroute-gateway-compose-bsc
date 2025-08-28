@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  bxgateway-go:
+    image: bloxroute/bloxroute-gateway-go
+    container_name: bxgateway-go
+    restart: unless-stopped
+    ports:
+      - "1801:1801"  # WebSocket port
+      - "28333:28333"  # P2P port
+    volumes:
+      - ${LOG_FILE_PATH:-./logs}:/app/bloxroute/logs
+      - ${SSL_CERT_PATH:-./ssl}:/app/bloxroute/ssl
+    environment:
+      - BLOCKCHAIN_NETWORK=${BLOCKCHAIN_NETWORK:-BSC-Mainnet}
+      - BLOCKCHAIN_NODE_PUBLIC_KEY=${BLOCKCHAIN_NODE_PUBLIC_KEY}
+      - NODE_IP=${NODE_IP}
+      - NODE_PORT=${NODE_PORT}
+      - ENR=${ENR}
+      - PRIVATE_KEY=${PRIVATE_KEY}
+      - ETH_WS_URI=${ETH_WS_URI}
+    command: >
+      --blockchain-network ${BLOCKCHAIN_NETWORK:-BSC-Mainnet}
+      --ws
+      --port 1801
+      --enodes enode://${BLOCKCHAIN_NODE_PUBLIC_KEY}@${NODE_IP}:${NODE_PORT}
+      --enr ${ENR}
+      --private-key ${PRIVATE_KEY}
+      --eth-ws-uri ${ETH_WS_URI}
+    networks:
+      - bloxroute-network
+
+networks:
+  bloxroute-network:
+    driver: bridge

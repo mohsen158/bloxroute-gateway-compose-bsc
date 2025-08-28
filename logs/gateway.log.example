@@ -1,0 +1,10 @@
+2024-01-15T10:30:00.000Z [INFO] Starting bloXroute Gateway...
+2024-01-15T10:30:01.000Z [INFO] Gateway version: 1.0.0
+2024-01-15T10:30:01.500Z [INFO] Connecting to blockchain network: BSC-Mainnet
+2024-01-15T10:30:02.000Z [INFO] WebSocket server started on port 1801
+2024-01-15T10:30:02.500Z [INFO] P2P server started on port 28333
+2024-01-15T10:30:03.000Z [INFO] Connected to BSC node: enode://abc123...@192.168.1.100:30303
+2024-01-15T10:30:03.500Z [INFO] Gateway initialization completed successfully
+2024-01-15T10:30:04.000Z [INFO] Listening for new blocks...
+2024-01-15T10:30:05.000Z [INFO] Received block #12345678
+2024-01-15T10:30:06.000Z [INFO] Processing transaction: 0xabc123...
