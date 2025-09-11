@@ -8,6 +8,7 @@ services:
     ports:
       - "1801:1801"  # WebSocket port
       - "28333:28333"  # P2P port
+      - "5001:5001"  # gRPC port
     volumes:
       - ${LOG_FILE_PATH:-./logs}:/app/bloxroute/logs
       - ${SSL_CERT_PATH:-./ssl}:/app/bloxroute/ssl
@@ -22,6 +23,9 @@ services:
       --blockchain-network ${BLOCKCHAIN_NETWORK:-BSC-Mainnet}
       --ws
       --port 1801
+      --grpc
+      --grpc-host ${GRPC_HOST:-127.0.0.1}
+      --grpc-port ${GRPC_PORT:-5001}
       --enodes enode://${BLOCKCHAIN_NODE_PUBLIC_KEY}@${NODE_IP}:${NODE_PORT}
       # --private-key ${PRIVATE_KEY}
       --eth-ws-uri ${ETH_WS_URI}
